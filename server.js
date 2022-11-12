@@ -11,7 +11,7 @@ const DATABASE = process.env.DATABASE;
 
 
 // CONEXIÓN A BASE DE DATOS
-mongoose.connect(DATABASE)
+mongoose.connect('mongodb://localhost:27017')
     .then(db => console.log("Conexión a BD correcta"))
     .catch(error => console.log("Error al conectarse a la BD" + error));
 
