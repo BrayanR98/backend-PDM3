@@ -7,11 +7,11 @@ const apiRoutes  = require('./routes');
 
 const app    = express();
 const PORT   = process.env.PORT || 3000;
-const DB_URI = process.env.DB_URI;
+const DATABASE = process.env.DATABASE;
 
 
 // CONEXIÓN A BASE DE DATOS
-mongoose.connect('mongodb://localhost:27017/dbpdm3')
+mongoose.connect(DATABASE)
     .then(db => console.log("Conexión a BD correcta"))
     .catch(error => console.log("Error al conectarse a la BD" + error));
 
@@ -23,4 +23,4 @@ app.use('/api', apiRoutes);
 app.use(express.static(path.join(__dirname , 'public')));
 
 // SERVIDOR WEB
-app.listen(PORT, () => console.log(`Servidor iniciado en hhtp://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Servidor iniciado en http://localhost:${PORT}`));
