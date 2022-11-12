@@ -5,7 +5,7 @@ const User = mongoose.model('User',
 );
 
 const Venta = mongoose.model('Venta',
-  new mongoose.Schema({ idvend: String, zona: String , fecha:Date ,ValorVenta:Number})
+  new mongoose.Schema({ idvend: String, zona: String , fecha:Date ,ValorVenta:Number,comision:Number})
 );
 
 module.exports = {
