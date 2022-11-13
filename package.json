@@ -2,11 +2,13 @@
   "name": "tiendabackend",
   "version": "1.0.0",
   "description": "Backend of a Fullstack webapp",
+  "author": "",
+  "license": "ISC",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "webapp",
