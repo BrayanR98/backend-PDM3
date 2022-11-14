@@ -5,10 +5,15 @@ const { User, Venta } = require("./models.js");
 
 exports.readUsers = (req, res) =>
     User.find({}, (err, data) => {
-        if (err) res.json({ error: err });
+        if (err) res.json({ error: err.message });
         else     res.json(data);
     });
 
+exports.readUsersv = (req, res) =>
+    User.find({ rol: req.params.rol }, (err, data) => {
+        if (err) res.json({ error: err.message });
+        else     res.json(data);
+    });
 
 exports.readUser = (req, res) =>
     User.findOne({ idvend: req.params.id }, (err, data) => {
@@ -26,7 +31,7 @@ exports.deleteUser = (req, res) =>
 
 exports.updateUser = (req, res) =>
     User.findOneAndUpdate(
-        { _id: req.params.id },
+        { idvend: req.params.id },
         { $set: { nombre: req.body.nombre, correo: req.body.correo,rol:req.body.rol , totalcomision: req.body.totalcomision } }, 
         (err, data) => {
             if (err) res.json({ error: err });
@@ -54,7 +59,7 @@ exports.readVentas = (req, res) =>
 
 
 exports.readVenta = (req, res) =>
-    Venta.findOne({ _id: req.params.id }, (err, data) => {
+    Venta.find({ idvend: req.params.id }, (err, data) => {
         if (err) res.json({ error: err });
         else     res.json(data);
     });
@@ -80,7 +85,7 @@ exports.updateVenta = (req, res) =>
 
 
 exports.createVenta = (req, res) =>
-    new Venta({ idvend: req.body.idvend, zona: req.body.zona , fecha:req.body.fecha,valorventa:req.body.valorventa })
+    new Venta({ idvend: req.body.idvend, zona: req.body.zona , fecha:req.body.fecha,ValorVenta:req.body.ValorVenta,comision: req.body.comision })
     .save((err, data) => {
         if (err) res.json({ error: err });
         else     res.json(data);

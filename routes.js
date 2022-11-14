@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 // --------------- API REST CRUD
-
+router.get    ("/usersv/:rol",      cors(), controller.readUsersv);
 router.get    ("/users",      cors(), controller.readUsers);   // Read All
 router.get    ("/user/:id",  cors(), controller.readUser);    // Read
 router.delete ("/user/:id",  cors(), controller.deleteUser);  // Delete
